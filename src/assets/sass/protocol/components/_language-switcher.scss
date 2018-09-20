@@ -35,12 +35,4 @@
     .js & button {
         display: none;
     }
-
-    @media #{$mq-md} {
-        @include colspan(4);
-        @include bidi((
-            (float, left, right),
-            (padding, 0 $padding-lg 0 0, 0 0 0 $padding-lg),
-        ));
-    }
 }
