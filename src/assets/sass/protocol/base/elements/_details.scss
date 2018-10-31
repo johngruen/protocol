@@ -4,10 +4,17 @@
 
 @import '../../includes/lib';
 
-.mzp-c-details {
+.mzp-c-details,
+details {
     .is-summary {
         button {
-            all: inherit;
+            color: inherit;
+            background: transparent;
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            text-align: inherit;
+            border: 0;
             width: 100%;
             position: relative;
         }
@@ -19,6 +26,7 @@
 }
 
 summary,
+details .is-summary button,
 .mzp-c-details .is-summary button {
     position: relative;
 
@@ -37,6 +45,7 @@ summary,
 }
 
 details[open] summary:before,
+details .is-summary button[aria-expanded=true]:before,
 .mzp-c-details .is-summary button[aria-expanded=true]:before {
     transform: rotate(45deg);
 }

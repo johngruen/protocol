@@ -5,17 +5,32 @@
 (function() {
     'use strict';
 
-    var _mqWide = matchMedia('(max-width: 479px)');
+    // check we have global variable
+    if (typeof window.Mzp !== 'undefined') {
+        var Mzp = window.Mzp;
+        var footerHeadings = '.mzp-c-footer-sections .mzp-c-footer-heading';
 
-    if (_mqWide.matches) {
-        window.Mozilla.Details.init('.mzp-c-footer-sections .mzp-c-footer-heading');
-    }
+        // check we have global Supports and Details library
+        if (typeof Mzp.Supports !== 'undefined' && typeof Mzp.Details !== 'undefined') {
 
-    _mqWide.addListener(function(mq) {
-        if (mq.matches) {
-            window.Mozilla.Details.init('.mzp-c-footer-sections .mzp-c-footer-heading');
-        } else {
-            window.Mozilla.Details.destroy('.mzp-c-footer-sections .mzp-c-footer-heading');
+            // check browser supports matchMedia
+            if(Mzp.Supports.matchMedia) {
+                var _mqWide = matchMedia('(max-width: 479px)');
+
+                // initialize details if screen is small
+                if (_mqWide.matches) {
+                    Mzp.Details.init(footerHeadings);
+                }
+
+                // remove details if screen is big
+                _mqWide.addListener(function(mq) {
+                    if (mq.matches) {
+                        Mzp.Details.init(footerHeadings);
+                    } else {
+                        Mzp.Details.destroy(footerHeadings);
+                    }
+                });
+            }
         }
-    });
+    }
 })();

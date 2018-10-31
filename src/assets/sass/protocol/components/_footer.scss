@@ -143,7 +143,7 @@
         margin-bottom: 0;
         padding: $spacing-md 0;
         position: relative;
-        text-align: start;
+        @include bidi(((text-align, left, right),));
         width: 100%;
     }
 
@@ -155,7 +155,7 @@
             outline: 1px dotted #fff;
         }
 
-        &:before {
+        button:before {
             background: $url-image-expand-white top left no-repeat;
             @include background-size(16px, 16px);
             @include bidi(((right, 8px, left, auto),));
@@ -166,6 +166,10 @@
             position: absolute;
             top: 50%;
             width: 16px;
+        }
+
+        button[aria-expanded=true]:before {
+            transform: rotate(45deg);
         }
     }
 

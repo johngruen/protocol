@@ -4,8 +4,8 @@
 
 
 // create namespace
-if (typeof Mozilla === 'undefined') {
-    var Mozilla = {};
+if (typeof Mzp === 'undefined') {
+    var Mzp = {};
 }
 
 (function() {
@@ -13,20 +13,20 @@ if (typeof Mozilla === 'undefined') {
 
     var Utils = {};
 
-    // matches() polyfill
-    // TODO: where should this go?
+    // matches() vendorfill, used by nextUntil
     if (!Element.prototype.matches) {
         Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
     }
 
     /**
-     * wrapAll
+     * nextUntil
      * @param {Object} el - Element that you want to get the siblings of
      * @param {String} selector - Selector of the element you want to stop collecting siblings before
      * @param {String} filter - Selector to filter results if you only want siblings matching this pattern
+     * @return {Array} - an array of HTML elements
      * - https://gomakethings.com/how-to-get-all-sibling-elements-until-a-match-is-found-with-vanilla-javascript/
      */
-    Utils.nextUntil = function (el, selector, filter) { //TODO: captialization of nextUntil?
+    Utils.nextUntil = function (el, selector, filter) {
         // Setup siblings array
         var siblings = [];
 
@@ -55,5 +55,5 @@ if (typeof Mozilla === 'undefined') {
         return siblings;
     };
 
-    window.Mozilla.Utils = Utils;
+    window.Mzp.Utils = Utils;
 })();

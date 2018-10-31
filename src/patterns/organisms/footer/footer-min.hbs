@@ -5,7 +5,6 @@ description: |
   A page footer organism, containing common links to compliment primary navigation.
 notes: |
   - The example above shows an embedded Language Switcher component inside the Footer organism.
-  - Inline JavaScript in this example is for demo purposes only. Use external files in production code.
 links:
     Footer Demo: /demos/footer.html
 ---
@@ -19,9 +18,9 @@ links:
           Content available under a <a rel="license" href="https://www.mozilla.org/foundation/licensing/website-content/">Creative Commons license</a>.
         </p>
         <ul class="mzp-c-footer-terms">
-          <li><a rel="nofollow" href="https://www.mozilla.org/privacy/websites/">Website Privacy Notice</a></li>
-          <li><a rel="nofollow" href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
-          <li><a rel="nofollow" href="https://www.mozilla.org/about/legal/">Legal</a></li>
+          <li><a href="https://www.mozilla.org/privacy/websites/">Website Privacy Notice</a></li>
+          <li><a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+          <li><a href="https://www.mozilla.org/about/legal/">Legal</a></li>
         </ul>
       </div>
     </nav>
@@ -29,5 +28,6 @@ links:
 </footer>
 
 <script src="{{@root.baseurl}}/assets/protocol/protocol/js/protocol-utils.js"></script>
+<script src="{{@root.baseurl}}/assets/protocol/protocol/js/protocol-supports.js"></script>
 <script src="{{@root.baseurl}}/assets/protocol/protocol/js/protocol-details.js"></script>
 <script src="{{@root.baseurl}}/assets/protocol/protocol/js/protocol-footer.js"></script>
