@@ -109,7 +109,6 @@ if (typeof Mzp === 'undefined') {
             details = summarySiblings[0];
         } else if (summarySiblings.length > 1){
             details = doc.createElement('div');
-            details.classList.add('mzp-c-details-wrapper');
             summarySiblings.forEach(function(sibling) {
                 details.appendChild(sibling);
             });
@@ -122,12 +121,15 @@ if (typeof Mzp === 'undefined') {
         // add class to parent to indicate js initialized
         parent.classList.add('is-details');
 
+        // add class to content wrapper
+        details.classList.add('mzp-js-details-wrapper');
+
         // look for existing ID to use
         if(!details.id) {
-            // if details already has ID, use that, if not assign one
+            // if details already has ID, use that, if not assign one using the selector minus all not-letters
             var unique = selector.replace(/[^a-zA-Z]+/g, '');
             details.id = 'expand-' + unique + '-'+ _count;
-            _count++;
+            _count += 1;
         }
 
         // close by default
