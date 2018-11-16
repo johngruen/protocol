@@ -61,6 +61,5 @@ if (typeof Mzp === 'undefined') {
         return diff;
     }());
 
-
     window.Mzp.Supports = Supports;
 })(document);

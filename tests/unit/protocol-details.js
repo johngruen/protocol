@@ -21,7 +21,7 @@ describe('protocol-details.js', function() {
                               '<p>Paragraph 2</p>' +
                               '<h4 id="test2-sub-heading-1">Sub Heading 1</h4>' +
                               '<p>Paragraph 3</p>' +
-                           '</section>'+
+                           '</section>' +
                       '</div>';
 
         document.documentElement.insertAdjacentHTML('beforeend', details);
@@ -41,7 +41,7 @@ describe('protocol-details.js', function() {
         });
 
         it('does not initalize if the browser does not support it', function() {
-            Mzp.Details.isSupported = false;
+            spyOn(Mzp.Details, 'isSupported').and.returnValue(false);
             spyOn(Mzp.Details, 'initItem').and.callThrough();
 
             Mzp.Details.init('#test1-details > h3');
@@ -50,7 +50,7 @@ describe('protocol-details.js', function() {
         });
 
         it('initalizes on the expcted elements if the browser supports it', function() {
-            Mzp.Details.isSupported = true;
+            spyOn(Mzp.Details, 'isSupported').and.returnValue(true);
             spyOn(Mzp.Details, 'initItem').and.callThrough();
 
             Mzp.Details.init('#test1-details > h3');
@@ -73,7 +73,7 @@ describe('protocol-details.js', function() {
             var content1 = document.querySelector('#test1-heading-1 + p');
 
             // correct HTML
-            // generates wrapper if necissary and applies id if necissary
+            // generates wrapper if necessary and applies id if necessary
             var content2 = document.querySelector('#test1-heading-2 + div');
             expect(content2.id.indexOf('expand-testdetailsh-') === 0).toBeTruthy();
             // adds buttons to headings

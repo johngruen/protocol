@@ -14,13 +14,13 @@ if (typeof Mzp === 'undefined') {
     var Details = {};
     var _count = 0;
 
-    Details.isSupported = (function() {
+    Details.isSupported = function() {
         if (typeof Mzp.Supports !== 'undefined' && typeof Mzp.Utils !== 'undefined') {
             return Mzp.Supports.classList;
         } else {
             return false;
         }
-    }());
+    };
 
     /**
      * open
@@ -63,7 +63,7 @@ if (typeof Mzp === 'undefined') {
         var details = doc.getElementById(id);
         var isClosed = details.getAttribute('aria-hidden');
 
-        if(isClosed == 'true') {
+        if (isClosed === 'true') {
             Details.open(id, options);
         } else {
             Details.close(id, options);
@@ -105,7 +105,7 @@ if (typeof Mzp === 'undefined') {
         summarySiblings = Mzp.Utils.nextUntil(summary, selector);
 
         // look to see if all children are already in a wrapper we can use
-        if(summarySiblings.length == 1) {
+        if (summarySiblings.length === 1) {
             details = summarySiblings[0];
         } else if (summarySiblings.length > 1){
             details = doc.createElement('div');
@@ -197,7 +197,7 @@ if (typeof Mzp === 'undefined') {
          };
      */
     Details.init = function(selector, options) {
-        if (!Details.isSupported) {
+        if (!Details.isSupported()) {
             return;
         }
         if (typeof options === 'undefined') {

@@ -20,12 +20,14 @@
     a:visited {
         color: $color-white;
         font-weight: normal;
+        text-decoration: underline;
     }
 
     a:hover,
     a:focus,
     a:active {
         color: $color-white;
+        text-decoration: none;
     }
 }
 
@@ -136,14 +138,14 @@
     &,
     & button {
         @include text-body-md;
+        @include bidi(((text-align, left, right),));
         background-color: transparent;
-        border: 0;
         border-bottom: 1px solid $color-gray-70;
+        border: 0;
         color: inherit;
         margin-bottom: 0;
         padding: $spacing-md 0;
         position: relative;
-        @include bidi(((text-align, left, right),));
         width: 100%;
     }
 
@@ -169,7 +171,7 @@
         }
 
         button[aria-expanded=true]:before {
-            transform: rotate(45deg);
+            @include transform(rotate(45deg));
         }
     }
 
@@ -240,6 +242,7 @@
 
         a {
             @include image-replaced;
+            border-bottom: 1px solid transparent;
             display: block;
             height: 16px;
             width: 16px;
@@ -254,6 +257,11 @@
 
             &.youtube {
                 background-image: url('#{$image-path}/icons/social/youtube/white.svg');
+            }
+
+            &:hover,
+            &:focus {
+                border-bottom-color: $color-white;
             }
         }
     }

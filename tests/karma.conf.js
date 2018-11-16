@@ -20,7 +20,6 @@ module.exports = function(config) {
             '../dist/assets/protocol/protocol/js/protocol-utils.js',
             // js files
             '../dist/assets/protocol/protocol/js/protocol-details.js',
-            '../dist/assets/protocol/protocol/js/protocol-details.js',
             '../dist/assets/protocol/protocol/js/protocol-lang-switcher.js',
             '../dist/assets/protocol/protocol/js/protocol-menu.js',
             '../dist/assets/protocol/protocol/js/protocol-navigation.js',

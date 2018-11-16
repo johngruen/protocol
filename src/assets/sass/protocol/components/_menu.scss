@@ -163,7 +163,7 @@
 .js .mzp-c-menu-category {
     &.is-selected {
         .mzp-c-menu-title:before {
-            transform: rotate(45deg);
+            @include transform(rotate(45deg));
         }
         .mzp-c-menu-panel {
             display: block;

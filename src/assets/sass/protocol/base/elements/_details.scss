@@ -47,7 +47,7 @@ details .is-summary button,
 details[open] summary:before,
 details .is-summary button[aria-expanded=true]:before,
 .mzp-c-details .is-summary button[aria-expanded=true]:before {
-    transform: rotate(45deg);
+    @include transform(rotate(45deg));
 }
 
 summary::-webkit-details-marker {
