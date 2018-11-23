@@ -3,6 +3,7 @@
 ## Bug Fixes
 
 * **js:** Add missing del dependency in build (#271).
+* Update tokens
 
 # 3.1.0
 
