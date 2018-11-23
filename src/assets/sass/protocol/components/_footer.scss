@@ -94,7 +94,7 @@
         text-decoration: underline;
     }
 
-    @media (min-width: 480px) and (max-width: 1055px) {
+    @media (min-width: #{$screen-sm}) and (max-width: #{$screen-lg - 1px}) {
         @include bidi(((float, left, right),));
         @include grid-half;
 
