@@ -1,16 +1,48 @@
 ---
 name: Custom expand and collapse
-description: The functions driving the details and summary component can be called independantly
+description: The functions driving the details and summary component can be called independantly.
 order: 3
 notes: |
     - Styling must be provided seperately
-    - Details can be initialized using `Mzp.Details.init(selector, options)`, where `options` is an Object with the following properties.
+    - Details can be initialized using `Mzp.Details.init(selector, options)`, where `options` is an Object with the following properties:
       - `onDetailsOpen` [Function] callback when a details is opened (optional).
-      - `onDetailsOpen` [Function] callback when a details is closed (optional).
+      - `onDetailsClosed` [Function] callback when a details is closed (optional).
 ---
 
 <style>
-.demo-section .is-closed[aria-hidden=true] { display: none; }
+  /* Styling must be provided seperately, don't use these ones they're intentionally bad */
+  .demo-section:before {
+    color: #00A;
+    content: 'Enlarge window to see Mzp.Details.destroy';
+    display: block;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 767px) {
+    .demo-section:before {
+      content: 'Shrink window to see Mzp.Details.init';
+    }
+  }
+
+  .demo-section button {
+    border: none;
+    background: #00A;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .demo-section button[aria-expanded=false]:after {
+    content: " 👈";
+  }
+
+  .demo-section button[aria-expanded=true]:after {
+    content: " 👇";
+  }
+
+  .demo-section .is-closed[aria-hidden=true] {
+    display: none;
+  }
 </style>
 
 <section class="demo-section">
